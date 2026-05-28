@@ -1,19 +1,38 @@
 # Python cache
-  __pycache__/
-  *.py[cod]
+__pycache__/
+*.py[cod]
+*$py.class
 
-  # Virtual environment
-  .venv/
-  venv/
+# Virtual environments
+.venv/
+venv/
+env/
 
-  # Environment variables
-  .env
+# Environment variables and local secrets
+.env
+.env.*
 
-  # Local database / runtime data
-  AI_Library/users.db
-  AI_Library/chroma_db_local/
-  AI_Library/logs/
+# Local runtime data
+AI_Library/users.db
+AI_Library/*.db-journal
+AI_Library/*.sqlite
+AI_Library/*.sqlite3
+AI_Library/chroma_db_local/
+AI_Library/logs/
 
-  # Uploaded documents
-  AI_Library/documents/*
-  !AI_Library/documents/.gitkeep
+# Uploaded documents
+AI_Library/documents/*
+!AI_Library/documents/.gitkeep
+
+# Test and tooling cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

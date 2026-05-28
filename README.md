@@ -2,6 +2,10 @@
 
 这是一个基于本地大模型的知识库问答系统，支持 PDF/TXT 文档上传、向量化检索、RAG 问答、管理员文档管理、用户管理、审计日志和向量库同步维护。
 
+## 免责声明
+
+本项目仅用于学习、研究与演示目的，不保证适用于生产环境。项目代码按“现状”提供，作者不对因使用、修改或部署本项目而产生的问题、损失或风险承担责任。
+
 ## 功能概览
 
 - 本地知识库问答：基于 Chroma 向量库和 Ollama 本地模型。
@@ -62,8 +66,6 @@ python -m pip install -U pip
 python -m pip install -r requirements.txt
 ```
 
-如果 PDF 解析只使用 PyMuPDF/PyPDF，`unstructured` 不是必须项；安装失败时可以先跳过。
-
 ## 配置说明
 
 主要配置位于 `AI_Library/config.py`。
@@ -91,7 +93,7 @@ SYSTEM_CONFIG = {
 - 修改管理员账号密码
 - 删除管理员账号
 
-二级密码不再写死在代码中，而是从环境变量读取：
+二级密码从环境变量读取：
 
 ```powershell
 $env:AI_ADMIN_SECONDARY_PASSWORD="123456"
@@ -142,14 +144,13 @@ $env:AI_WEB_PORT="7861"
 python AI_Library\ai_library.py
 ```
 
-默认管理员账号：
+## 默认管理员账号：
 
 ```text
 username: admin
 password: admin123
 ```
-
-该默认账号仅用于本地演示。生产环境应初始化后立即修改密码。
+> 注意：默认管理员账号仅用于本地演示。首次启动后请立即修改默认密码，不建议在公网环境中使用默认账号。
 
 ## Web 端使用说明
 
@@ -348,7 +349,7 @@ python AI_Library\ai_library.py
 确认启动 Web 前已经设置：
 
 ```powershell
-$env:AI_ADMIN_SECONDARY_PASSWORD="123456"
+$env:AI_ADMIN_SECONDARY_PASSWORD="your_strong_secondary_password"
 ```
 
 环境变量在 Python 进程启动时读取。修改环境变量后，需要重启 Web 服务。
@@ -363,3 +364,8 @@ $env:AI_ADMIN_SECONDARY_PASSWORD="123456"
 cd AI_Library
 python sync_vector_db.py rebuild --yes
 ```
+## 本项目主要面向本地知识库问答系统的学习、实验与毕业设计展示，未针对公网部署、多用户高并发、数据安全合规等生产环境要求做完整加固。
+
+## 开源许可证
+
+本项目采用 MIT License，详情见 `LICENSE` 文件。
