@@ -35,8 +35,8 @@ AI_Library/
 - Python 3.10+
 - Ollama
 - 本地 Ollama 模型：
-  - LLM：`deepseek-r1`
-  - Embedding：`nomic-embed-text:latest`
+  - LLM：`deepseek-r1`或其他模型
+  - Embedding：`nomic-embed-text:latest`或其他模型
 
 安装 Ollama 模型：
 
@@ -206,10 +206,6 @@ AI_Library/sync_vector_db.py
 cd AI_Library
 ```
 
-帮助：
-
-```python sync_vector_db.py -h
-```
 查看统计：
 
 ```powershell
