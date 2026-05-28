@@ -96,7 +96,7 @@ SYSTEM_CONFIG = {
 二级密码从环境变量读取：
 
 ```powershell
-$env:AI_ADMIN_SECONDARY_PASSWORD="123456"
+$env:AI_ADMIN_SECONDARY_PASSWORD="your_strong_secondary_password"
 ```
 
 启动 Web 前必须设置该环境变量。未设置时，管理员账号的高风险操作会被拒绝。
@@ -108,7 +108,7 @@ $env:AI_ADMIN_SECONDARY_PASSWORD="123456"
 $env:AI_WEB_PORT="7860"
 
 # 管理员高风险操作二级密码
-$env:AI_ADMIN_SECONDARY_PASSWORD="123456"
+$env:AI_ADMIN_SECONDARY_PASSWORD="your_strong_secondary_password"
 
 # 审计日志开关，默认开启
 $env:AI_AUDIT_ENABLED="1"
@@ -127,7 +127,7 @@ $env:AI_RETRIEVAL_STRATEGY="hybrid"
 建议在项目根目录执行：
 
 ```powershell
-$env:AI_ADMIN_SECONDARY_PASSWORD="123456"
+$env:AI_ADMIN_SECONDARY_PASSWORD="your_strong_secondary_password"
 python AI_Library\ai_library.py
 ```
 
