@@ -55,6 +55,12 @@ python -m venv .venv
 pip install -U pip
 pip install -r requirements.txt
 ```
+```cmd
+python -m venv .venv
+.venv\Scripts\activate.bat
+python -m pip install -U pip
+python -m pip install -r requirements.txt
+```
 
 如果 PDF 解析只使用 PyMuPDF/PyPDF，`unstructured` 不是必须项；安装失败时可以先跳过。
 
@@ -143,7 +149,7 @@ username: admin
 password: admin123
 ```
 
-该默认账号仅用于本地演示。生产环境应初始化后立即修改密码，并使用更安全的密码哈希方案。
+该默认账号仅用于本地演示。生产环境应初始化后立即修改密码。
 
 ## Web 端使用说明
 
@@ -152,8 +158,6 @@ password: admin123
 普通用户登录后可以使用知识库问答功能。
 
 ### 管理员
-
-管理员登录后会看到两个一级入口：
 
 - 文档管理
 - 用户管理
@@ -202,6 +206,10 @@ AI_Library/sync_vector_db.py
 cd AI_Library
 ```
 
+帮助：
+
+```python sync_vector_db.py -h
+```
 查看统计：
 
 ```powershell
@@ -311,37 +319,6 @@ python user_manager.py stats
 - Web 端支持修改用户权限。
 - 命令行脚本当前主要支持用户列表、添加、删除、重置密码、统计。
 
-## GitHub 提交建议
-
-不要提交以下本地产物：
-
-```gitignore
-__pycache__/
-*.pyc
-
-AI_Library/users.db
-AI_Library/chroma_db_local/
-AI_Library/logs/
-AI_Library/documents/*
-!AI_Library/documents/.gitkeep
-
-.env
-*.log
-```
-
-原因：
-
-- `users.db` 包含用户、密码哈希和 session。
-- `chroma_db_local/` 是本地向量库，可能包含文档语义信息。
-- `logs/` 可能包含问答内容和调试信息。
-- `documents/` 中的真实 PDF/TXT 可能涉及版权或隐私。
-- `__pycache__/`、`*.pyc` 是 Python 编译缓存。
-
-如果希望保留空的 `documents` 目录，可以放置空文件：
-
-```text
-AI_Library/documents/.gitkeep
-```
 
 ## 常见问题
 
