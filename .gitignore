@@ -1,0 +1,19 @@
+# Python cache
+  __pycache__/
+  *.py[cod]
+
+  # Virtual environment
+  .venv/
+  venv/
+
+  # Environment variables
+  .env
+
+  # Local database / runtime data
+  AI_Library/users.db
+  AI_Library/chroma_db_local/
+  AI_Library/logs/
+
+  # Uploaded documents
+  AI_Library/documents/*
+  !AI_Library/documents/.gitkeep
